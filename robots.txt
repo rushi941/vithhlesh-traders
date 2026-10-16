@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vithhlesh-traders.pages.dev/sitemap.xml
