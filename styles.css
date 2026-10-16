@@ -625,6 +625,40 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .why-item h3 { color: var(--ivory); font-size: 1.2rem; margin-bottom: var(--space-2); }
 .why-item p { font-size: var(--fs-sm); }
 
+/* FAQ */
+.faq__list {
+  max-width: 820px;
+  margin-inline: auto;
+  border-top: 1px solid var(--line);
+}
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__item summary {
+  position: relative;
+  padding: var(--space-5) var(--space-7) var(--space-5) 0;
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--green-deep);
+  cursor: pointer;
+  list-style: none;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "";
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s var(--ease);
+}
+.faq__item[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.faq__item summary:hover { color: var(--green); }
+.faq__item p { padding: 0 var(--space-7) var(--space-5) 0; color: var(--muted); }
+
 /* Contact */
 .contact-grid {
   display: grid;

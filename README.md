@@ -19,6 +19,8 @@ vithhlesh-traders/
 ├── sitemap.xml           Page list for search engines
 ├── site.webmanifest      App icon / theme colour metadata
 ├── favicon.ico           Browser tab icon
+├── googlebc647765ed31bdfd.html   Google Search Console verification file (do not delete or rename)
+├── _headers              Cloudflare Pages caching and security headers
 ├── README.md
 └── assets/
     ├── logo-128.webp / logo-256.webp / logo-400.webp   Logo (header, footer, contact)
@@ -109,7 +111,20 @@ Each category is one `<article class="product-card" data-product="…">` inside 
 
 Never add prices, brands, stock levels or specifications unless the owner confirms them.
 
-### 2.7 Photographs
+### 2.7 FAQ section
+
+The FAQ answers in `index.html` (the `#faq` section) are repeated in the `FAQPage` structured data in `<head>`. When you edit a question or answer, update both places so they match.
+
+### 2.8 Google Search Console
+
+The site is verified in two ways. Keep both, because removing either can cancel the verification:
+
+- the `google-site-verification` meta tag in `index.html`
+- the file `googlebc647765ed31bdfd.html` at the top level of the site
+
+After the site is live, click **Verify** in [Search Console](https://search.google.com/search-console), then open **Sitemaps** and submit `sitemap.xml`. The Search Console property address must match the live address exactly.
+
+### 2.9 Photographs
 
 The product and hero photographs are **representative images created for this website**. They show no brands, prices or labels. For the strongest trust signal, replace them with real photos of the shop, its counter and its stock:
 

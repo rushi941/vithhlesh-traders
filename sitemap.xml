@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://vithhlesh-traders.pages.dev/</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/hero-grains-1920.webp</image:loc></image:image>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/rice-800.webp</image:loc></image:image>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/wheat-800.webp</image:loc></image:image>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/pulses-800.webp</image:loc></image:image>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/groceries-800.webp</image:loc></image:image>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/edible-oils-800.webp</image:loc></image:image>
+    <image:image><image:loc>https://vithhlesh-traders.pages.dev/assets/trading-products-800.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://vithhlesh-traders.pages.dev/privacy.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

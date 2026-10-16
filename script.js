@@ -107,7 +107,7 @@
   if ('IntersectionObserver' in window && navLinks.length) {
     var linkFor = {};
     navLinks.forEach(function (a) { linkFor[a.getAttribute('href').slice(1)] = a; });
-    var sectionAlias = { 'why-us': 'wholesale-retail', enquiry: 'contact' };
+    var sectionAlias = { 'why-us': 'wholesale-retail', faq: 'contact', enquiry: 'contact' };
     var sectionObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
