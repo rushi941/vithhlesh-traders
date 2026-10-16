@@ -20,7 +20,73 @@
     mapEmbedUrl: ''
   };
 
-  var DEFAULT_WA_MESSAGE = 'Hello ' + CONFIG.businessName + ', I would like to make an enquiry.';
+  var STRINGS = {
+    en: {
+      businessName: 'Vitthalesh Traders',
+      defaultWa: 'Hello Vitthalesh Traders, I would like to make an enquiry.',
+      callFallback: 'Call to Enquire',
+      menuOpen: 'Open menu',
+      menuClose: 'Close menu',
+      mapTitle: 'Map showing Vitthalesh Traders in Piplod, Dahod',
+      otherProduct: 'Multiple products / not listed',
+      prepareLabel: 'Prepare My Enquiry',
+      errName: 'Please enter your name.',
+      errMobile: 'Please enter a valid 10-digit Indian mobile number.',
+      errType: 'Please choose Retail or Wholesale.',
+      errProduct: 'Please choose a product category.',
+      errSummary: 'Please correct the highlighted fields and try again.',
+      msgGreeting: 'Hello Vitthalesh Traders,',
+      msgIntro: 'I would like to make an enquiry.',
+      msgName: 'Name',
+      msgMobile: 'Mobile',
+      msgType: 'Customer type',
+      msgProduct: 'Product interest',
+      msgQuantity: 'Quantity / requirement',
+      msgMessage: 'Message',
+      msgFooter: '(Sent from the website enquiry form)',
+      waOpening: 'WhatsApp is opening with your enquiry. Review the message and tap send.',
+      waRetry: 'WhatsApp did not open? Click here',
+      readyCall: 'Your enquiry is ready. Please call the shop on {phone} and share these details:',
+      call: 'Call',
+      copy: 'Copy details',
+      copied: 'Copied',
+      copyFailed: 'Copy failed – please select the text'
+    },
+    gu: {
+      businessName: 'વિઠ્ઠલેશ ટ્રેડર્સ',
+      defaultWa: 'નમસ્તે વિઠ્ઠલેશ ટ્રેડર્સ, મારે પૂછપરછ કરવી છે.',
+      callFallback: 'પૂછપરછ માટે ફોન કરો',
+      menuOpen: 'મેનુ ખોલો',
+      menuClose: 'મેનુ બંધ કરો',
+      mapTitle: 'પીપલોદ, દાહોદમાં વિઠ્ઠલેશ ટ્રેડર્સનો નકશો',
+      otherProduct: 'એકથી વધુ ઉત્પાદનો / યાદીમાં નથી',
+      prepareLabel: 'મારી પૂછપરછ તૈયાર કરો',
+      errName: 'કૃપા કરીને તમારું નામ લખો.',
+      errMobile: 'કૃપા કરીને 10 અંકનો સાચો મોબાઇલ નંબર લખો.',
+      errType: 'કૃપા કરીને છૂટક અથવા જથ્થાબંધ પસંદ કરો.',
+      errProduct: 'કૃપા કરીને ઉત્પાદનની શ્રેણી પસંદ કરો.',
+      errSummary: 'કૃપા કરીને લાલ રંગમાં દર્શાવેલી માહિતી સુધારીને ફરી પ્રયાસ કરો.',
+      msgGreeting: 'નમસ્તે વિઠ્ઠલેશ ટ્રેડર્સ,',
+      msgIntro: 'મારે પૂછપરછ કરવી છે.',
+      msgName: 'નામ',
+      msgMobile: 'મોબાઇલ',
+      msgType: 'ગ્રાહકનો પ્રકાર',
+      msgProduct: 'ઉત્પાદન',
+      msgQuantity: 'જથ્થો / જરૂરિયાત',
+      msgMessage: 'સંદેશ',
+      msgFooter: '(વેબસાઇટના પૂછપરછ ફોર્મ પરથી મોકલેલ)',
+      waOpening: 'તમારી પૂછપરછ સાથે WhatsApp ખુલી રહ્યું છે. સંદેશ તપાસો અને મોકલો.',
+      waRetry: 'WhatsApp ન ખૂલ્યું? અહીં ક્લિક કરો',
+      readyCall: 'તમારી પૂછપરછ તૈયાર છે. કૃપા કરીને {phone} પર દુકાને ફોન કરીને આ વિગતો જણાવો:',
+      call: 'ફોન કરો',
+      copy: 'વિગતો કૉપિ કરો',
+      copied: 'કૉપિ થઈ ગયું',
+      copyFailed: 'કૉપિ ન થયું – કૃપા કરીને લખાણ પસંદ કરો'
+    }
+  };
+  var T = STRINGS[(document.documentElement.lang || 'en').toLowerCase().indexOf('gu') === 0 ? 'gu' : 'en'];
+
+  var DEFAULT_WA_MESSAGE = T.defaultWa;
   var waEnabled = /^\d{10,15}$/.test(CONFIG.whatsappNumber);
   var telHref = 'tel:' + CONFIG.phoneE164;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -49,7 +115,7 @@
     }
     el.href = telHref;
     var label = $('[data-wa-label]', el);
-    if (label) label.textContent = el.getAttribute('data-wa-fallback') || 'Call to Enquire';
+    if (label) label.textContent = el.getAttribute('data-wa-fallback') || T.callFallback;
     var use = $('use', el);
     if (use) use.setAttribute('href', '#i-phone');
   });
@@ -80,7 +146,7 @@
       toggle.setAttribute('aria-expanded', String(open));
       nav.classList.toggle('is-open', open);
       toggleIcon.setAttribute('href', open ? '#i-close' : '#i-menu');
-      toggleLabel.textContent = open ? 'Close menu' : 'Open menu';
+      toggleLabel.textContent = open ? T.menuClose : T.menuOpen;
     };
 
     toggle.addEventListener('click', function () {
@@ -139,7 +205,7 @@
   if (map && CONFIG.mapEmbedUrl.indexOf('https://www.google.com/maps/embed') === 0) {
     var iframe = document.createElement('iframe');
     iframe.src = CONFIG.mapEmbedUrl;
-    iframe.title = 'Map showing ' + CONFIG.businessName + ' in Piplod, Dahod';
+    iframe.title = T.mapTitle;
     iframe.loading = 'lazy';
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
     iframe.allowFullscreen = true;
@@ -159,10 +225,10 @@
     var name = card.getAttribute('data-product');
     productSelect.add(new Option(name, name));
   });
-  productSelect.add(new Option('Multiple products / not listed', 'Multiple products / not listed'));
+  productSelect.add(new Option(T.otherProduct, T.otherProduct));
 
   if (!waEnabled) {
-    submitLabel.textContent = 'Prepare My Enquiry';
+    submitLabel.textContent = T.prepareLabel;
     submitIcon.setAttribute('href', '#i-check');
   }
 
@@ -181,10 +247,10 @@
   }
 
   var validators = {
-    name: function (v) { return v.trim().length >= 2 ? '' : 'Please enter your name.'; },
-    mobile: function (v) { return normaliseMobile(v) ? '' : 'Please enter a valid 10-digit Indian mobile number.'; },
-    customerType: function (v) { return v ? '' : 'Please choose Retail or Wholesale.'; },
-    product: function (v) { return v ? '' : 'Please choose a product category.'; }
+    name: function (v) { return v.trim().length >= 2 ? '' : T.errName; },
+    mobile: function (v) { return normaliseMobile(v) ? '' : T.errMobile; },
+    customerType: function (v) { return v ? '' : T.errType; },
+    product: function (v) { return v ? '' : T.errProduct; }
   };
 
   var errorIds = { name: 'enq-name-error', mobile: 'enq-mobile-error', customerType: 'enq-type-error', product: 'enq-product-error' };
@@ -231,19 +297,19 @@
   function buildMessage() {
     var mobile = normaliseMobile(fieldValue('mobile'));
     var lines = [
-      'Hello ' + CONFIG.businessName + ',',
-      'I would like to make an enquiry.',
+      T.msgGreeting,
+      T.msgIntro,
       '',
-      'Name: ' + fieldValue('name').trim(),
-      'Mobile: +91 ' + mobile.slice(0, 5) + ' ' + mobile.slice(5),
-      'Customer type: ' + fieldValue('customerType'),
-      'Product interest: ' + fieldValue('product')
+      T.msgName + ': ' + fieldValue('name').trim(),
+      T.msgMobile + ': +91 ' + mobile.slice(0, 5) + ' ' + mobile.slice(5),
+      T.msgType + ': ' + fieldValue('customerType'),
+      T.msgProduct + ': ' + fieldValue('product')
     ];
     var quantity = form.elements.quantity.value.trim();
     var message = form.elements.message.value.trim();
-    if (quantity) lines.push('Quantity / requirement: ' + quantity);
-    if (message) lines.push('Message: ' + message);
-    lines.push('', '(Sent from the website enquiry form)');
+    if (quantity) lines.push(T.msgQuantity + ': ' + quantity);
+    if (message) lines.push(T.msgMessage + ': ' + message);
+    lines.push('', T.msgFooter);
     return lines.join('\n');
   }
 
@@ -274,7 +340,7 @@
 
     if (firstInvalid) {
       showStatus('error', function (box) {
-        box.appendChild(el('p', {}, 'Please correct the highlighted fields and try again.'));
+        box.appendChild(el('p', {}, T.errSummary));
       });
       firstInvalid.focus();
       return;
@@ -286,26 +352,26 @@
       var url = waUrl(message);
       window.open(url, '_blank', 'noopener');
       showStatus('', function (box) {
-        box.appendChild(el('p', {}, 'WhatsApp is opening with your enquiry. Review the message and tap send.'));
+        box.appendChild(el('p', {}, T.waOpening));
         var actions = el('div', { class: 'form-status__actions' });
-        actions.appendChild(el('a', { class: 'btn btn--outline', href: url, target: '_blank', rel: 'noopener' }, 'WhatsApp did not open? Click here'));
+        actions.appendChild(el('a', { class: 'btn btn--outline', href: url, target: '_blank', rel: 'noopener' }, T.waRetry));
         box.appendChild(actions);
       });
       return;
     }
 
     showStatus('info', function (box) {
-      box.appendChild(el('p', {}, 'Your enquiry is ready. Please call the shop on ' + CONFIG.phoneDisplay + ' and share these details:'));
+      box.appendChild(el('p', {}, T.readyCall.replace('{phone}', CONFIG.phoneDisplay)));
       box.appendChild(el('pre', {}, message));
       var actions = el('div', { class: 'form-status__actions' });
-      actions.appendChild(el('a', { class: 'btn btn--primary', href: telHref }, 'Call ' + CONFIG.phoneDisplay));
+      actions.appendChild(el('a', { class: 'btn btn--primary', href: telHref }, T.call + ' ' + CONFIG.phoneDisplay));
       if (navigator.clipboard && window.isSecureContext) {
-        var copyBtn = el('button', { class: 'btn btn--outline', type: 'button' }, 'Copy details');
+        var copyBtn = el('button', { class: 'btn btn--outline', type: 'button' }, T.copy);
         copyBtn.addEventListener('click', function () {
           navigator.clipboard.writeText(message).then(function () {
-            copyBtn.textContent = 'Copied';
+            copyBtn.textContent = T.copied;
           }, function () {
-            copyBtn.textContent = 'Copy failed – please select the text';
+            copyBtn.textContent = T.copyFailed;
           });
         });
         actions.appendChild(copyBtn);

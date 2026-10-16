@@ -111,11 +111,24 @@ Each category is one `<article class="product-card" data-product="…">` inside 
 
 Never add prices, brands, stock levels or specifications unless the owner confirms them.
 
-### 2.7 FAQ section
+### 2.7 Languages (Gujarati default, English)
+
+The site has two languages. Gujarati is the default:
+
+- **Gujarati (default):** `index.html`, at `/`
+- **English:** `en/index.html`, at `/en/`
+
+A button in the header switches between them. Both pages share `styles.css`, `script.js` and `assets/`. The script picks English or Gujarati form messages, errors and WhatsApp text based on the page's `lang` attribute.
+
+When you change content on one page, make the same change on the other: products, FAQ, phone numbers and text. Product categories are separate `<article>` blocks on each page. The English page links to assets with `../` (for example `../assets/rice-800.webp`).
+
+The old `/gu/` address redirects permanently to `/` through the `_redirects` file.
+
+### 2.8 FAQ section
 
 The FAQ answers in `index.html` (the `#faq` section) are repeated in the `FAQPage` structured data in `<head>`. When you edit a question or answer, update both places so they match.
 
-### 2.8 Google Search Console
+### 2.9 Google Search Console
 
 The site is verified in two ways. Keep both, because removing either can cancel the verification:
 
@@ -124,7 +137,7 @@ The site is verified in two ways. Keep both, because removing either can cancel 
 
 After the site is live, click **Verify** in [Search Console](https://search.google.com/search-console), then open **Sitemaps** and submit `sitemap.xml`. The Search Console property address must match the live address exactly.
 
-### 2.9 Photographs
+### 2.10 Photographs
 
 The product and hero photographs are **representative images created for this website**. They show no brands, prices or labels. For the strongest trust signal, replace them with real photos of the shop, its counter and its stock:
 
