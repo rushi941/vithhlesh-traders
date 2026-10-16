@@ -1,4 +1,4 @@
-/* Vithhlesh Traders – site behaviour (no dependencies) */
+/* Vitthalesh Traders – site behaviour (no dependencies) */
 (function () {
   'use strict';
 
@@ -6,14 +6,14 @@
      Site settings – edit these values before publishing.
      ------------------------------------------------------------------ */
   var CONFIG = {
-    businessName: 'Vithhlesh Traders',
+    businessName: 'Vitthalesh Traders',
     phoneDisplay: '098987 70189',
     phoneE164: '+919898770189',
 
     // WhatsApp number: country code + number, digits only (e.g. '919876543210').
     // Leave empty until the shop confirms which number is registered on WhatsApp.
     // While empty, WhatsApp buttons fall back to calling the shop.
-    whatsappNumber: '',
+    whatsappNumber: '918758382400',
 
     // Google Maps embed URL from Google Maps > Share > Embed a map (the src="..." value).
     // Must start with https://www.google.com/maps/embed. Leave empty to show the directions card.

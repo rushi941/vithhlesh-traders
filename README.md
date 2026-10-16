@@ -1,6 +1,6 @@
-# Vithhlesh Traders – Website
+# Vitthalesh Traders – Website
 
-A static, single-page business website for **Vithhlesh Traders**, a grocery and food-grain trading business on Randhik Pur Road, Piplod, Dahod, Gujarat 389130.
+A static, single-page business website for **Vitthalesh Traders**, a grocery and food-grain trading business on Randhik Pur Road, Piplod, Dahod, Gujarat 389130.
 
 It is built with plain HTML, CSS and JavaScript only: no framework, no build step, no backend, and no paid services. It can be hosted for free on Cloudflare Pages or GitHub Pages.
 
@@ -40,36 +40,32 @@ vithhlesh-traders/
 
 Work through this list with the shop owner before the site goes live.
 
-### 2.1 WhatsApp number (important)
+### 2.1 WhatsApp number
 
-The WhatsApp number is **intentionally left empty**. It must not be guessed from the phone number, because a phone number is not necessarily registered on WhatsApp.
+The confirmed WhatsApp number is **87583 82400**. It is set in the `CONFIG` block at the top of `script.js`, with the country code, digits only:
 
-1. Ask the owner which number they use for WhatsApp (ideally WhatsApp Business).
-2. Open `script.js` and find the `CONFIG` block at the top.
-3. Enter the number with the country code, **digits only**, with no `+`, spaces or leading `0`:
+```js
+whatsappNumber: '918758382400',
+```
 
-   ```js
-   whatsappNumber: '91XXXXXXXXXX',
-   ```
+The phone numbers shown for calls are **098987 70189** (primary) and **087583 82400**.
 
-4. Save the file and redeploy.
-
-**What happens while the number is empty:**
+**What happens if `whatsappNumber` is emptied:**
 
 - Every "WhatsApp" button switches to a phone call to 098987 70189 and its label changes, for example to "Call to Enquire".
 - WhatsApp-only buttons in the contact card and the mobile bottom bar are hidden.
 - The enquiry form still validates the details, then shows the prepared message with **Call** and **Copy details** buttons.
 
-**After the number is set:**
+**While the number is set:**
 
 - All WhatsApp buttons open `https://wa.me/<number>` with a prefilled message.
 - The form opens WhatsApp with the customer's full enquiry, ready to review and send.
 
 ### 2.2 Business name spelling
 
-The supplied logo reads **"VITTHALESH TRADERS"**, but the brief and this website use **"Vithhlesh Traders"**. Confirm the official spelling with the owner, matching the Google Business Profile and any shop signboard.
+The confirmed spelling is **"Vitthalesh Traders"**, matching the logo. The web address and repository still use `vithhlesh-traders`, which visitors don't see as the business name.
 
-If it needs to change, do a find-and-replace across `index.html`, `privacy.html`, `404.html`, `script.js`, `site.webmanifest` and this README.
+To change the name again, do a find-and-replace across `index.html`, `privacy.html`, `404.html`, `script.js`, `site.webmanifest` and this README.
 
 ### 2.3 Website address (domain)
 
@@ -87,7 +83,7 @@ If the final address is different (another project name, GitHub Pages or a custo
 The directions links use a Google Maps search:
 
 ```
-https://www.google.com/maps/search/?api=1&query=Vithhlesh+Traders+Piplod+Dahod+Gujarat
+https://www.google.com/maps/search/?api=1&query=Vitthalesh+Traders+Piplod+Dahod+Gujarat
 ```
 
 Once the shop's Google Business Profile is confirmed:
@@ -191,7 +187,7 @@ This is free, fast in India, and gives an HTTPS address such as `vithhlesh-trade
    - Every later push or upload to GitHub redeploys automatically.
 5. **Test the live address on a phone.** Go through the checklist in section 4, especially call, WhatsApp and directions.
 6. **Add the website to Google Business Profile.**
-   - Go to <https://business.google.com>, open the Vithhlesh Traders profile, then **Edit profile**, then **Contact**, then **Website**.
+   - Go to <https://business.google.com>, open the Vitthalesh Traders profile, then **Edit profile**, then **Contact**, then **Website**.
    - Paste the live URL and save. Google may take a few days to show it.
    - Optionally, submit `https://<your-address>/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
 7. **Custom domain (optional).**
